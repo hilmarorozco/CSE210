@@ -1,10 +1,14 @@
 '''
-Tic-Tac-Toe: A Solution
-Author: Hilmar Orozco L
+Tic-Tac-Toe
+Week 2: 01/15/2022
+Author: Hilmar Orozco
 
 from termcolor import colored
 '''
+
 def main():
+    print('Welcome!')
+
     player = next_player("")
     board = create_board()
     while not (has_winner(board) or is_a_draw(board)):
@@ -23,19 +27,41 @@ def create_board():
 def display_board(board):
     #print(f"{_colored_charboard[0]}|{board[1]}|{board[2]}")
     
+    #print('   |   |')
+    #print(' ' + board[0] + ' | ' + board[1] + ' | ' + board[3])
+    #print('   |   |')
+    #print('-----------')
+    #print('   |   |')
+    #print(' ' + board[3] + ' | ' + board[4] + ' | ' + board[5])
+    #print('   |   |')
+    #print('-----------')
+    #print('   |   |')
+    #print(' ' + board[6] + ' | ' + board[7] + ' | ' + board[8])
+    #print('   |   |')
+
+    
     print()
-    print(f"{board[0]}|{board[1]}|{board[2]}")
-    print('-+-+-')
-    print(f"{board[3]}|{board[4]}|{board[5]}")
-    print('-+-+-')
-    print(f"{board[6]}|{board[7]}|{board[8]}")
+    print(f"       |       |    ")
+    print(f"   {board[0]}   |   {board[1]}   |   {board[2]}")
+    print(f"       |       |    ")
+    print('-------+-------+-------')
+    print(f"       |       |    ")
+    print(f"   {board[3]}   |   {board[4]}   |   {board[5]}")
+    print(f"       |       |    ")
+    print('-------+-------+-------')
+    print(f"       |       |    ")
+    print(f"   {board[6]}   |   {board[7]}   |   {board[8]}")
+    print(f"       |       |    ")
     print()
+    
     
 def is_a_draw(board):
     for square in range(9):
         if board[square] != "x" and board[square] != "o":
             return False
     return True 
+
+
     
 def has_winner(board):
     return (board[0] == board[1] == board[2] or
@@ -47,9 +73,22 @@ def has_winner(board):
             board[0] == board[4] == board[8] or
             board[2] == board[4] == board[6])
 
+            
+
 def make_move(player, board):
-    square = int(input(f"{player}'s turn to choose a square (1-9): "))
-    board[square - 1] = player
+    #square = int(input(f"{player}'s turn to choose a square (1-9): "))
+    #board[square - 1] = player
+    try:
+        square = int(input(f"{player}'s turn to choose a square (1-9): "))
+
+        if square >9 or square <1 or board[square-1] == "o" or board[square-1] == "x":
+            raise ValueError()
+        board[square-1] = player
+    except ValueError:
+        print("Position taken. Choose a valid position.")
+        make_move(player,board)
+        return
+
 
 def next_player(current):
     if current == "" or current == "o":
