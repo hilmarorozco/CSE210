@@ -3,11 +3,10 @@ Tic-Tac-Toe
 Week 2: 01/15/2022
 Author: Hilmar Orozco
 
-from termcolor import colored
 '''
 
 def main():
-    print('Welcome!')
+    print('Welcome to Tic-Tac-Toe!')
 
     player = next_player("")
     board = create_board()
@@ -16,7 +15,7 @@ def main():
         make_move(player, board)
         player = next_player(player)
     display_board(board)
-    print("Good game. Thanks for playing!") 
+    print("Thanks for playing Tic-Tac-Toe!") 
 
 def create_board():
     board = []
@@ -25,20 +24,6 @@ def create_board():
     return board
 
 def display_board(board):
-    #print(f"{_colored_charboard[0]}|{board[1]}|{board[2]}")
-    
-    #print('   |   |')
-    #print(' ' + board[0] + ' | ' + board[1] + ' | ' + board[3])
-    #print('   |   |')
-    #print('-----------')
-    #print('   |   |')
-    #print(' ' + board[3] + ' | ' + board[4] + ' | ' + board[5])
-    #print('   |   |')
-    #print('-----------')
-    #print('   |   |')
-    #print(' ' + board[6] + ' | ' + board[7] + ' | ' + board[8])
-    #print('   |   |')
-
     
     print()
     print(f"       |       |    ")
