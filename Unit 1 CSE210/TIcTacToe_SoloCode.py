@@ -1,7 +1,7 @@
 '''
 Tic-Tac-Toe
 Week 2: 01/15/2022
-Author: Hilmar Orozco
+Author: Hilmar Orozco Lopez
 
 '''
 
